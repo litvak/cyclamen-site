@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy | Flat Peaks</title>
-<meta name="description" content="Flat Peaks collects no personal data. Everything the game saves stays on your device.">
+<meta name="description" content="What Flat Peaks collects by default (nothing) and what its optional, off-able crash reporting sends when you leave it on.">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
@@ -23,25 +23,54 @@
   <h1 class="wordmark">Flat Peaks</h1>
   <p class="tagline">Privacy Policy</p>
 
-  <p class="updated">Last revised 17 September 2026.</p>
+  <p class="updated">Last revised 27 September 2026.</p>
 
   <p class="lede">
-    Flat Peaks, published by Cyclamen Studio, does not collect, transmit, or share
-    any personal data. There is no account to create and no server to talk to.
+    Flat Peaks, published by Cyclamen Studio, does not collect personal data, run
+    ads, or track you. There is no account to create and no server the game talks
+    to during play. The one exception is an optional crash-reporting feature,
+    off in one tap, described below.
   </p>
 
-  <h2>What we collect</h2>
+  <h2>What we collect by default</h2>
   <p>
-    Nothing. Flat Peaks contains no analytics, no advertising SDKs, no third-party
-    trackers, and no crash-reporting service. The app does not send information
-    about you or your device anywhere.
+    Nothing. Flat Peaks contains no advertising SDKs, no behavioural analytics,
+    and no third-party trackers. It does not know your level progression, your
+    session length, or anything else about how you play.
+  </p>
+
+  <h2>Crash and error reporting</h2>
+  <p>
+    Flat Peaks can optionally report crashes and errors to <strong>Sentry</strong>
+    (Functional Software, Inc.), a third-party error-monitoring service, so bugs
+    that would otherwise fail silently on your device can get fixed. This exists
+    to report on the game, not on you.
+  </p>
+  <p>
+    The setting lives under <strong>Settings &rarr; Crash reports</strong> and
+    defaults to on. Turn it off at any time and reporting stops immediately,
+    including for anything already queued to send.
+  </p>
+  <p>
+    When enabled, a report can include the error type, message and stack trace;
+    which part of the game it came from; the app version; and a random number
+    identifying the current play session's simulation (not linked to you, your
+    device, or any account &mdash; it exists so a report can be reproduced, not
+    so it can be traced back to a person). A report never includes your save
+    data, device identifiers, account information, or IP address (Sentry's IP
+    capture is switched off for this app).
+  </p>
+  <p class="note">
+    Whether this feature is active in the specific copy of Flat Peaks you
+    installed depends on the build. The Data Safety section of this app's
+    Google Play listing states the current answer for the version you have.
   </p>
 
   <h2>What the game stores</h2>
   <p>
     Your saved towns, settings and progress are written to local storage on your
     own device. They are never uploaded. They are not backed up to us, because
-    there is no "us" to back them up to &mdash; we have no servers.
+    there is no "us" to back them up to &mdash; we have no game servers.
   </p>
   <p>
     Uninstalling Flat Peaks deletes this data permanently. You can also clear it
@@ -51,29 +80,41 @@
 
   <h2>Permissions</h2>
   <p>
-    Flat Peaks requests a single Android permission, <code>INTERNET</code>, which is
-    a technical requirement of the framework the game is built on. The game plays
-    fully offline and makes no network requests of its own.
+    Flat Peaks requests a single Android permission, <code>INTERNET</code>. Its
+    only use is letting the optional crash reporting above reach Sentry when
+    that setting is turned on; with it off, the app makes no network requests
+    of its own.
   </p>
   <p>
     It does not request access to your location, camera, microphone, contacts,
     photos, files, or any other sensitive permission.
   </p>
 
+  <h2>Third-party components</h2>
+  <p>
+    Flat Peaks is built on a small number of open-source libraries, each used
+    under its own licence, and the Sentry SDK described above when crash
+    reporting is enabled. See the
+    <a href="/licenses.html">Open Source Licenses</a> page for the full list.
+  </p>
+
   <h2>Children</h2>
   <p>
     Flat Peaks is suitable for all ages and contains no user-to-user communication,
-    no user-generated content, and no purchases. Because it collects no data
-    whatsoever, it does not knowingly collect information from children, and is
-    consistent with COPPA and comparable children's privacy rules.
+    no user-generated content, and no purchases. It does not collect data tied to
+    any person &mdash; including through the crash reporting above, which is not
+    linked to a device, account, or individual &mdash; so it does not knowingly
+    collect personal information from children, and is consistent with COPPA and
+    comparable children's privacy rules.
   </p>
 
   <h2>Changes to this policy</h2>
   <p>
-    If a future version of Flat Peaks ever collects anything, this page will be
-    updated before that version is published, and the revision date above will
-    change. Any such change would also be reflected in the app's Data Safety entry
-    on Google Play.
+    If crash reporting is ever enabled for a shipped build, or anything else
+    changes about what can leave your device, this page is updated before that
+    build is published, and the revision date above changes with it. The Data
+    Safety declaration on this app's Google Play listing always reflects the
+    version you installed.
   </p>
 
   <h2>Contact</h2>
@@ -86,6 +127,7 @@
     <a href="/">Studio</a>
     <a href="/flat-peaks.html">Flat Peaks</a>
     <a href="/terms.html">Terms</a>
+    <a href="/licenses.html">Licenses</a>
     <a href="/support.html">Support</a>
   </p>
 
