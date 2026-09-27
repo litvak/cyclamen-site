@@ -5,7 +5,7 @@
   --cyclamen: #c2186f;
   --hairline: rgba(0, 0, 0, 0.09);
   --measure: 36rem;
-  --masthead-max: 900px;
+  --mark-plate: transparent;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -22,33 +22,58 @@ body {
   font-feature-settings: "kern", "liga";
 }
 
-/* Full-width masthead so the logo can breathe past the reading measure. */
-.masthead {
-  max-width: var(--masthead-max);
+/* Reading column, holds the site header + page content. */
+.wrap {
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: clamp(56px, 12vh, 140px) 0 clamp(48px, 10vh, 112px);
-  text-align: center;
+  padding: 32px 0 96px;
 }
 
-.masthead-logo {
+/* --- Persistent site header (small brand lockup, top left) --- */
+.site-header {
+  margin: 0 0 clamp(56px, 11vh, 96px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand:hover { color: var(--cyclamen); text-decoration: none; }
+
+.brand-mark {
   display: block;
-  margin: 0 auto;
-  width: min(92vw, var(--masthead-max));
+  width: 40px;
   height: auto;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  background: var(--mark-plate);
   border-radius: 4px;
 }
 
-.wordmark {
+.brand-name {
   margin: 0;
-  font-size: clamp(44px, 12vw, 112px);
-  letter-spacing: -0.025em;
+  font-size: clamp(20px, 3.4vw, 24px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* --- Big page title (interior pages) --- */
+.wordmark {
+  margin: 0 0 10px;
+  font-size: clamp(40px, 9vw, 84px);
+  letter-spacing: -0.02em;
   line-height: 0.95;
   font-weight: 700;
   color: var(--ink);
 }
 
 .tagline {
-  margin: 18px 0 0;
+  margin: 0 0 clamp(28px, 5vh, 48px);
   font-size: clamp(12px, 2.6vw, 14px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -56,16 +81,7 @@ body {
   font-weight: 500;
 }
 
-/* Reading column */
-.wrap {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 0 0 96px;
-}
-
-h1, h2 { line-height: 1.2; }
-h1 { font-size: 28px; margin: 0 0 12px; }
-
+/* --- Body copy --- */
 h2 {
   font-size: 12px;
   margin: 56px 0 14px;
@@ -73,6 +89,7 @@ h2 {
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
+  line-height: 1.2;
 }
 
 p { margin: 0 0 18px; }
@@ -91,10 +108,12 @@ ul { padding-left: 1.15em; margin: 0 0 18px; }
 li { margin: 6px 0; }
 
 .lede {
-  font-size: clamp(19px, 2.6vw, 22px);
-  line-height: 1.5;
+  font-size: clamp(22px, 3.2vw, 30px);
+  line-height: 1.35;
+  font-weight: 400;
   color: var(--ink);
   margin: 0 0 20px;
+  letter-spacing: -0.005em;
 }
 
 .updated {
@@ -148,6 +167,7 @@ hr {
   margin: 72px 0 24px;
 }
 
+/* --- Footer nav --- */
 .nav {
   font-size: 13px;
   letter-spacing: 0.06em;
@@ -172,27 +192,7 @@ hr {
 .contact a { color: var(--muted); text-decoration: none; }
 .contact a:hover { color: var(--ink); }
 
-.studio {
-  margin: 40px 0 0;
-  text-align: center;
-}
-.studio img {
-  display: block;
-  margin: 0 auto 10px;
-  height: 40px;
-  width: auto;
-}
-.studio p {
-  margin: 0;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.studio a { color: var(--muted); text-decoration: none; }
-.studio a:hover strong { color: var(--cyclamen); }
-.studio strong { font-weight: 600; }
-
+/* --- Dark mode --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #0e0e10;
@@ -200,15 +200,11 @@ hr {
     --muted: #8a8a8a;
     --cyclamen: #e879b0;
     --hairline: rgba(255, 255, 255, 0.10);
+    /* The mark is charcoal linework on transparency; give it paper on dark. */
+    --mark-plate: #f2ebdd;
   }
-  /* Logo.png ships with its own paper background; float it as a card on dark. */
-  :root:not([data-theme="light"]) .masthead-logo {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-  }
-  :root:not([data-theme="light"]) .studio img {
-    padding: 6px;
-    background: #f2ebdd;
-    border-radius: 4px;
+  :root:not([data-theme="light"]) .brand-mark {
+    padding: 5px;
   }
   :root:not([data-theme="light"]) .cta {
     color: var(--paper);
