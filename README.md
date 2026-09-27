@@ -41,3 +41,6 @@ app is built **without** a Sentry DSN. If `SENTRY_DSN` is ever set as a reposito
 secret in the game repo, the shipped build reports crashes remotely — this page
 and the Play Data Safety declaration must both be updated first. See
 `docs/Telemetry.md` in the [FP-Game](https://github.com/litvak/fp-game) repo.
+
+---
+*Cloudflare Pages deployment test — 2026-09-27*
