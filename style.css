@@ -7,7 +7,6 @@
   --yellow: #e9c45a;
   --hairline: rgba(46, 39, 37, 0.13);
   --measure: 36rem;
-  --mark-plate: transparent;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -52,9 +51,6 @@ body {
   width: 40px;
   height: auto;
   flex-shrink: 0;
-  box-sizing: content-box;
-  background: var(--mark-plate);
-  border-radius: 4px;
 }
 
 .brand-name {
@@ -199,17 +195,12 @@ hr {
 /* --- Dark mode --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #3a2029;
+    --paper: #5a2340;
     --ink: #f4e6e4;
     --muted: #c3a5a8;
     --green: #a7c793;
     --yellow: #e8c66a;
-    --hairline: rgba(244, 230, 228, 0.13);
-    /* The mark is charcoal linework on transparency; give it blush paper on dark. */
-    --mark-plate: #f6e1e4;
-  }
-  :root:not([data-theme="light"]) .brand-mark {
-    padding: 5px;
+    --hairline: rgba(244, 230, 228, 0.14);
   }
   :root:not([data-theme="light"]) .cta {
     color: var(--paper);
