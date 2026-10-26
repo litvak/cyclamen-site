@@ -1,9 +1,11 @@
 :root {
-  --paper: #faf7f0;
-  --ink: #141414;
-  --muted: #6a6a6a;
-  --cyclamen: #c2186f;
-  --hairline: rgba(0, 0, 0, 0.09);
+  /* Blush paper, charcoal-brown ink, leaf green + pollen yellow accents. */
+  --paper: #f6e1e4;
+  --ink: #2e2725;
+  --muted: #6f5a55;
+  --green: #46663f;
+  --yellow: #e9c45a;
+  --hairline: rgba(46, 39, 37, 0.13);
   --measure: 36rem;
   --mark-plate: transparent;
 }
@@ -11,6 +13,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }
+
+::selection { background: var(--yellow); color: #2e2725; }
 
 body {
   margin: 0;
@@ -41,7 +45,7 @@ body {
   text-decoration: none;
   color: var(--ink);
 }
-.brand:hover { color: var(--cyclamen); text-decoration: none; }
+.brand:hover { color: var(--green); text-decoration: none; }
 
 .brand-mark {
   display: block;
@@ -99,10 +103,10 @@ a {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--hairline);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--yellow);
 }
-a:hover { text-decoration-color: var(--cyclamen); color: var(--cyclamen); }
+a:hover { text-decoration-color: var(--green); color: var(--green); }
 
 ul { padding-left: 1.15em; margin: 0 0 18px; }
 li { margin: 6px 0; }
@@ -136,8 +140,8 @@ li { margin: 6px 0; }
   border: 1px solid var(--ink);
 }
 .cta:hover {
-  background: var(--cyclamen);
-  border-color: var(--cyclamen);
+  background: var(--green);
+  border-color: var(--green);
   color: var(--paper);
   text-decoration: none;
 }
@@ -156,7 +160,7 @@ li { margin: 6px 0; }
 .note {
   color: var(--muted);
   font-size: 15px;
-  border-left: 2px solid var(--hairline);
+  border-left: 2px solid var(--yellow);
   padding: 2px 0 2px 14px;
   margin: 18px 0;
 }
@@ -195,13 +199,14 @@ hr {
 /* --- Dark mode --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0e0e10;
-    --ink: #ececec;
-    --muted: #8a8a8a;
-    --cyclamen: #e879b0;
-    --hairline: rgba(255, 255, 255, 0.10);
-    /* The mark is charcoal linework on transparency; give it paper on dark. */
-    --mark-plate: #f2ebdd;
+    --paper: #3a2029;
+    --ink: #f4e6e4;
+    --muted: #c3a5a8;
+    --green: #a7c793;
+    --yellow: #e8c66a;
+    --hairline: rgba(244, 230, 228, 0.13);
+    /* The mark is charcoal linework on transparency; give it blush paper on dark. */
+    --mark-plate: #f6e1e4;
   }
   :root:not([data-theme="light"]) .brand-mark {
     padding: 5px;
@@ -212,8 +217,8 @@ hr {
     border-color: var(--ink);
   }
   :root:not([data-theme="light"]) .cta:hover {
-    background: var(--cyclamen);
-    border-color: var(--cyclamen);
+    background: var(--green);
+    border-color: var(--green);
     color: var(--paper);
   }
 }
