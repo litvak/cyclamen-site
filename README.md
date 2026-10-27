@@ -6,6 +6,11 @@ Fonts are self-hosted in `fonts/` (Fraunces for headings, Libre Caslon Text for
 body), so pages make no third-party requests. Both are SIL Open Font License;
 the license texts sit next to the files.
 
+Every page repeats the same site header (brand + nav) and footer markup. With
+no build step there is no include mechanism, so change all six together.
+Artwork lives in `images/`: `flat-peaks.jpg` (game page), `flat-peaks-card.jpg`
+(home page card) and `flat-peaks-og.jpg` (1200&times;630 social preview).
+
 | Page | Purpose |
 |------|---------|
 | `index.html` | Studio landing page — the root of cyclamen-games.com |

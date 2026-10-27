@@ -3,82 +3,152 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cyclamen Studio</title>
-<meta name="description" content="We make Flat Peaks, a town-builder about hillsides, supply chains, and the slow satisfaction of a system that finally works. And we build the tools that keep it honest.">
+<title>Cyclamen Studio | Small, sunny games</title>
+<meta name="description" content="Cyclamen Studio makes small, sunny games about places worth tending. Our first is Flat Peaks, a cozy city-builder on a Mediterranean coast.">
 <meta property="og:title" content="Cyclamen Studio">
-<meta property="og:description" content="We make Flat Peaks, a town-builder about hillsides, supply chains, and the slow satisfaction of a system that finally works.">
+<meta property="og:description" content="Small, sunny games about places worth tending. Our first is Flat Peaks, a cozy coastal city-builder.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyclamen-games.com/">
+<meta property="og:image" content="https://cyclamen-games.com/images/flat-peaks-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<main class="wrap">
-
-  <header class="site-header">
-    <div class="brand">
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
       <picture>
         <source srcset="/cyclamen-mark-dark.png" media="(prefers-color-scheme: dark)">
         <img class="brand-mark" src="/cyclamen-mark.png" alt="" width="40" height="46">
       </picture>
-      <h1 class="brand-name">Cyclamen Studio</h1>
+      <span class="brand-name">Cyclamen Studio</span>
+    </a>
+    <nav class="top-nav" aria-label="Main">
+      <a href="/flat-peaks.html">Flat Peaks</a>
+      <a href="/#studio">Studio</a>
+      <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="container hero">
+    <h1>Small, sunny games about <em>places worth tending.</em></h1>
+  </section>
+
+  <section class="container" id="games">
+    <div class="section-head">
+      <h2>Our games</h2>
+      <span class="count">01</span>
     </div>
-  </header>
 
-  <p class="lede">
-    We make Flat Peaks &mdash; a town-builder about hillsides, supply chains, and
-    the slow satisfaction of a system that finally works.
-  </p>
+    <article class="game-card">
+      <a class="game-art" href="/flat-peaks.html" tabindex="-1" aria-hidden="true">
+        <img src="/images/flat-peaks-card.jpg" alt="" width="1400" height="875">
+      </a>
+      <div class="game-body">
+        <div class="game-title">
+          <h3>Flat Peaks</h3>
+          <span class="badge">In closed testing</span>
+        </div>
+        <p>
+          A cozy city-builder on a Mediterranean coast. Terrace the hills with
+          olive groves, lemon orchards and wheat, turn each harvest into bread,
+          cheese and pastries, and watch a harbour town grow at your own pace.
+        </p>
+        <p class="game-meta">For Android &middot; No ads &middot; Nothing to buy</p>
+        <p class="actions">
+          <a class="cta" href="mailto:support@cyclamen-games.com?subject=Flat%20Peaks%20test%20invite">Ask for an invite</a>
+          <a class="cta cta--ghost" href="/flat-peaks.html">About the game</a>
+        </p>
+      </div>
+    </article>
+  </section>
 
-  <p>
-    And we build the tools that keep it honest.
-  </p>
+  <section class="band" id="studio">
+    <div class="container split">
+      <h2 class="section-title">The studio</h2>
+      <div>
+        <p>
+          Cyclamen Studio is a one-person studio making calm, good-looking games
+          for phones: towns you can read at a glance, economies that reward a
+          little planning, and sessions you can put down mid-thought and pick up
+          a week later.
+        </p>
+        <p>
+          Behind the sunshine sits serious machinery. Flat Peaks runs on a
+          deterministic simulation with thousands of automated tests, so the town
+          you built last month still works after every update.
+        </p>
+        <p>Every email is read by the person who made the game.</p>
+        <p><a href="mailto:support@cyclamen-games.com">support@cyclamen-games.com</a></p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    <a class="cta" href="/flat-peaks.html">Play Flat Peaks</a>
-  </p>
-
-  <h2>One person, unusual machinery</h2>
-  <p>
-    Cyclamen Studio is one person. That&rsquo;s a constraint, not a pitch &mdash; and
-    the answer to it has been to build the machinery that a team would normally be.
-  </p>
-  <p>
-    Flat Peaks runs on a deterministic simulation core with 2,850 tests, a save
-    format on its 23rd version with live migrations, and eleven custom CI checks
-    that each encode a bug we already shipped once and would rather not ship again.
-  </p>
-
-  <h2>Tools in development</h2>
-  <p>
-    <strong>Simulation-based balance testing.</strong> The Flat Peaks economy is a
-    headless, deterministic simulation, so we can run thousands of playthroughs
-    before a person plays one. Not to find out whether the game is fun &mdash; no
-    machine will tell you that &mdash; but whether it&rsquo;s exploitable, whether
-    player decisions actually change the outcome, and where progression quietly
-    stalls. In progress.
-  </p>
-  <p>
-    <strong>Reproducible asset generation.</strong> Our road tiles are generated,
-    and so is the conditioning that shapes them. Same command, same seed, same
-    tile, every time, with a validator that fails the build when a tile&rsquo;s
-    geometry is wrong.
-  </p>
-
-  <hr>
-  <p class="nav">
-    <a href="/flat-peaks.html">Flat Peaks</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/licenses.html">Licenses</a>
-    <a href="/support.html">Support</a>
-  </p>
-  <p class="contact">
-    <a href="mailto:support@cyclamen-games.com">support@cyclamen-games.com</a>
-  </p>
+  <section class="container contacts">
+    <div>
+      <h3>Player support</h3>
+      <p>Found a bug, lost a town, or stuck on something? Most answers are on the support page, and the rest are an email away.</p>
+      <a class="link" href="/support.html">Get support</a>
+    </div>
+    <div>
+      <h3>Play it early</h3>
+      <p>Flat Peaks is in closed testing on Google Play. Ask for an invite and you&rsquo;ll get a link to join the test track.</p>
+      <a class="link" href="mailto:support@cyclamen-games.com?subject=Flat%20Peaks%20test%20invite">Ask for an invite</a>
+    </div>
+    <div>
+      <h3>Press &amp; business</h3>
+      <p>Writing about Flat Peaks, or interested in publishing, platforms or partnerships? Write to the studio directly.</p>
+      <a class="link" href="mailto:support@cyclamen-games.com">Email the studio</a>
+    </div>
+  </section>
 
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="/">
+        <picture>
+          <source srcset="/cyclamen-mark-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="brand-mark" src="/cyclamen-mark.png" alt="" width="40" height="46">
+        </picture>
+        <span class="brand-name">Cyclamen Studio</span>
+      </a>
+      <p><a href="mailto:support@cyclamen-games.com">support@cyclamen-games.com</a></p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>Games</h4>
+        <ul>
+          <li><a href="/flat-peaks.html">Flat Peaks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="/#studio">About</a></li>
+          <li><a href="/support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/licenses.html">Licenses</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Cyclamen Studio. All rights reserved.</p>
+  </div>
+</footer>
 </body>
 </html>
