@@ -7,6 +7,13 @@
   font-display: swap;
 }
 @font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-italic-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
   font-family: "Libre Caslon Text";
   src: url("/fonts/libre-caslon-text-400-latin.woff2") format("woff2");
   font-weight: 400;
@@ -24,11 +31,18 @@
 :root {
   /* Blush paper, charcoal-brown ink, leaf green + pollen yellow accents. */
   --paper: #f6e1e4;
+  --band: #f0d2d8;
   --ink: #2e2725;
   --muted: #6f5a55;
   --green: #46663f;
   --yellow: #e9c45a;
   --hairline: rgba(46, 39, 37, 0.13);
+  /* The game card stays dark in both themes, like a framed print. */
+  --card: #2e2725;
+  --card-ink: #f6e1e4;
+  --card-muted: #cdb5b3;
+  --card-line: rgba(246, 225, 228, 0.28);
+  --page: 66rem;
   --measure: 36rem;
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --text: "Libre Caslon Text", Georgia, "Times New Roman", serif;
@@ -36,35 +50,47 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 ::selection { background: var(--yellow); color: #2e2725; }
 
 body {
   margin: 0;
-  padding: 0 24px;
   background: var(--paper);
   color: var(--ink);
   font: 400 17px/1.65 var(--text);
   font-feature-settings: "kern", "liga", "onum";
 }
 
-/* Reading column, holds the site header + page content. */
-.wrap {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 32px 0 96px;
-}
+img { max-width: 100%; height: auto; }
 
-/* --- Persistent site header (small brand lockup, top left) --- */
-.site-header {
-  margin: 0 0 clamp(56px, 11vh, 96px);
+/* Page-width container; text pages keep their children to a reading measure. */
+.container,
+.wrap {
+  max-width: calc(var(--page) + 48px);
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.wrap { padding-top: clamp(48px, 9vh, 88px); padding-bottom: 32px; }
+.wrap > * { max-width: var(--measure); }
+
+/* --- Site header: brand left, nav right --- */
+.site-header { border-bottom: 1px solid var(--hairline); }
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
   color: var(--ink);
 }
@@ -72,20 +98,164 @@ body {
 
 .brand-mark {
   display: block;
-  width: 40px;
+  width: 34px;
   height: auto;
   flex-shrink: 0;
 }
 
 .brand-name {
-  font-family: var(--display);
   margin: 0;
-  font-size: clamp(20px, 3.4vw, 24px);
+  font-family: var(--display);
+  font-size: 19px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
   line-height: 1;
 }
+
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 26px;
+  font-size: 15px;
+}
+.top-nav a { color: var(--muted); text-decoration: none; }
+.top-nav a:hover,
+.top-nav a[aria-current="page"] { color: var(--ink); }
+
+/* --- Home: hero --- */
+.hero {
+  padding-top: clamp(64px, 13vh, 128px);
+  padding-bottom: clamp(56px, 10vh, 104px);
+}
+.hero h1 {
+  margin: 0;
+  max-width: 17ch;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(44px, 7.4vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.hero em { font-style: italic; color: var(--green); }
+
+/* --- Section heads --- */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+  margin-bottom: 28px;
+}
+.section-head h2 { margin: 0; }
+.section-head .count {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--muted);
+}
+
+h2.section-title {
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.4vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+/* --- Game card --- */
+.game-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  background: var(--card);
+  color: var(--card-ink);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.game-art { display: block; min-height: 100%; }
+.game-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.game-body {
+  padding: clamp(24px, 3.4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.game-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+.game-title h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(30px, 3.6vw, 40px);
+  line-height: 1;
+  color: var(--card-ink);
+}
+.game-body p { margin: 0 0 14px; }
+.game-meta {
+  font-size: 14px;
+  color: var(--card-muted);
+}
+.game-body .actions { margin: 14px 0 0; }
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px 4px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: #2e2725;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --- Studio band --- */
+.band {
+  background: var(--band);
+  margin-top: clamp(72px, 12vh, 120px);
+  padding: clamp(56px, 10vh, 104px) 0;
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px 48px;
+}
+.split p { margin: 0 0 18px; }
+
+/* --- Contact blocks --- */
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 40px;
+  padding-top: clamp(64px, 11vh, 112px);
+  padding-bottom: clamp(24px, 4vh, 40px);
+}
+.contacts > div { border-top: 1px solid var(--ink); padding-top: 18px; }
+.contacts h3 {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.contacts p { margin: 0 0 14px; font-size: 16px; color: var(--muted); }
+.contacts .link { font-size: 16px; }
 
 /* --- Big page title (interior pages) --- */
 .wordmark {
@@ -106,6 +276,31 @@ body {
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
+}
+
+/* Game page: copy beside the artwork on wide screens, artwork first on narrow. */
+.wrap > .game-page { max-width: none; }
+.game-page .copy { max-width: var(--measure); }
+.art { margin: 0 0 clamp(32px, 6vh, 56px); }
+.art img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+@media (min-width: 900px) {
+  .game-page {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .game-page .art {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: 24px;
+  }
+  .game-page .copy { grid-column: 1; grid-row: 1; }
 }
 
 /* --- Body copy --- */
@@ -151,35 +346,51 @@ li { margin: 6px 0; }
   margin: -6px 0 28px;
 }
 
+/* --- Buttons --- */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
 .cta {
   display: inline-block;
   margin: 10px 0 4px;
-  padding: 14px 28px;
+  padding: 13px 26px;
   background: var(--ink);
   color: var(--paper);
   text-decoration: none;
   letter-spacing: 0.02em;
   font-size: 15px;
-  font-weight: 500;
-  border-radius: 2px;
+  border-radius: 999px;
   border: 1px solid var(--ink);
 }
+.actions .cta { margin: 0; }
 .cta:hover {
   background: var(--green);
   border-color: var(--green);
   color: var(--paper);
   text-decoration: none;
 }
-.cta--soon {
+.cta--soon,
+.cta--soon:hover {
   background: transparent;
   color: var(--muted);
   border-color: var(--hairline);
   cursor: default;
 }
-.cta--soon:hover {
+
+/* Buttons on the dark game card. */
+.game-card .cta {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #2e2725;
+}
+.game-card .cta--ghost {
   background: transparent;
-  color: var(--muted);
-  border-color: var(--hairline);
+  border-color: var(--card-line);
+  color: var(--card-ink);
+}
+.game-card .cta:hover {
+  background: #a7c793;
+  border-color: #a7c793;
+  color: #2e2725;
 }
 
 .note {
@@ -190,55 +401,68 @@ li { margin: 6px 0; }
   margin: 18px 0;
 }
 
-hr {
-  border: 0;
+/* --- Site footer --- */
+.site-footer {
   border-top: 1px solid var(--hairline);
-  margin: 72px 0 24px;
+  margin-top: clamp(64px, 11vh, 112px);
+  font-size: 15px;
 }
-
-/* --- Footer nav --- */
-.nav {
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px 48px;
+  padding-top: 44px;
+  padding-bottom: 36px;
+}
+.footer-brand p { margin: 12px 0 0; }
+.footer-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 72px;
+}
+.footer-cols h4 {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-cols ul { list-style: none; padding: 0; margin: 0; }
+.footer-cols li { margin: 0 0 8px; }
+.site-footer a { color: var(--ink); text-decoration: none; }
+.site-footer a:hover { color: var(--green); }
+.footer-bottom {
+  padding-bottom: 32px;
   font-size: 13px;
-  letter-spacing: 0.06em;
-  text-align: center;
   color: var(--muted);
-  margin: 0 0 10px;
 }
-.nav a {
-  margin: 0 10px;
-  white-space: nowrap;
-  color: var(--muted);
-  text-decoration: none;
-}
-.nav a:hover { color: var(--ink); }
-
-.contact {
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
+.footer-bottom p {
   margin: 0;
+  border-top: 1px solid var(--hairline);
+  padding-top: 20px;
 }
-.contact a { color: var(--muted); text-decoration: none; }
-.contact a:hover { color: var(--ink); }
+
+/* --- Narrow screens --- */
+@media (max-width: 760px) {
+  .game-card,
+  .split,
+  .contacts { grid-template-columns: minmax(0, 1fr); }
+  .game-art img { aspect-ratio: 16 / 10; height: auto; }
+}
 
 /* --- Dark mode --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #5a2340;
+    --band: #4c1c36;
     --ink: #f4e6e4;
     --muted: #c3a5a8;
     --green: #a7c793;
     --yellow: #e8c66a;
     --hairline: rgba(244, 230, 228, 0.14);
-  }
-  :root:not([data-theme="light"]) .cta {
-    color: var(--paper);
-    background: var(--ink);
-    border-color: var(--ink);
-  }
-  :root:not([data-theme="light"]) .cta:hover {
-    background: var(--green);
-    border-color: var(--green);
-    color: var(--paper);
+    --card: #34121f;
   }
 }

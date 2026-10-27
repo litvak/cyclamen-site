@@ -11,9 +11,8 @@
 </head>
 <body>
 
-<main class="wrap">
-
-  <header class="site-header">
+<header class="site-header">
+  <div class="container">
     <a class="brand" href="/">
       <picture>
         <source srcset="/cyclamen-mark-dark.png" media="(prefers-color-scheme: dark)">
@@ -21,7 +20,15 @@
       </picture>
       <span class="brand-name">Cyclamen Studio</span>
     </a>
-  </header>
+    <nav class="top-nav" aria-label="Main">
+      <a href="/flat-peaks.html">Flat Peaks</a>
+      <a href="/#studio">Studio</a>
+      <a href="/support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
 
   <h1 class="wordmark">Flat Peaks</h1>
   <p class="tagline">Privacy Policy</p>
@@ -140,15 +147,47 @@
     Questions about privacy: <a href="mailto:support@cyclamen-games.com">support@cyclamen-games.com</a>.
   </p>
 
-  <hr>
-  <p class="nav">
-    <a href="/">Studio</a>
-    <a href="/flat-peaks.html">Flat Peaks</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/licenses.html">Licenses</a>
-    <a href="/support.html">Support</a>
-  </p>
-
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a class="brand" href="/">
+        <picture>
+          <source srcset="/cyclamen-mark-dark.png" media="(prefers-color-scheme: dark)">
+          <img class="brand-mark" src="/cyclamen-mark.png" alt="" width="40" height="46">
+        </picture>
+        <span class="brand-name">Cyclamen Studio</span>
+      </a>
+      <p><a href="mailto:support@cyclamen-games.com">support@cyclamen-games.com</a></p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>Games</h4>
+        <ul>
+          <li><a href="/flat-peaks.html">Flat Peaks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="/#studio">About</a></li>
+          <li><a href="/support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="/licenses.html">Licenses</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Cyclamen Studio. All rights reserved.</p>
+  </div>
+</footer>
 </body>
 </html>
