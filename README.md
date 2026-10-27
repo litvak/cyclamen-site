@@ -2,6 +2,10 @@
 
 Six static pages, no build step, no JavaScript. `style.css` is shared.
 
+Fonts are self-hosted in `fonts/` (Fraunces for headings, Libre Caslon Text for
+body), so pages make no third-party requests. Both are SIL Open Font License;
+the license texts sit next to the files.
+
 | Page | Purpose |
 |------|---------|
 | `index.html` | Studio landing page — the root of cyclamen-games.com |
