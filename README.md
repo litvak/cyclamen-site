@@ -37,17 +37,13 @@ Connect this repository in the Cloudflare dashboard (Workers & Pages → Create 
 
 Add the custom domain under the project's **Custom domains** tab. Cloudflare issues the TLS certificate automatically.
 
-## The support mailbox must exist before launch
+## The support mailbox
 
 Every page links `support@cyclamen-games.com`, and Google Play requires a working
-support address on the store listing. **This mailbox does not exist yet.**
-
-Cloudflare Email Routing is free and the domain is already on Cloudflare for
-Pages: dashboard → the domain → **Email** → **Email Routing** → create the custom
-address `support@cyclamen-games.com` forwarding to a personal inbox, then confirm
-the verification mail Cloudflare sends there.
-
-Until that is done the address bounces, which would fail the Play listing review.
+support address on the store listing. It is live via Cloudflare Email Routing
+(dashboard → the domain → **Email** → **Email Routing**), which forwards it to a
+personal inbox. Change the destination there; the MX records it adds must stay in
+place or the address starts bouncing.
 
 ## Keeping the privacy policy honest
 
