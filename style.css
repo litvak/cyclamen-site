@@ -1,29 +1,23 @@
-/* Self-hosted (SIL OFL, see fonts/): Fraunces for display, Libre Caslon Text for reading. */
+/* Self-hosted (SIL OFL, see fonts/): Bricolage Grotesque for statements, Inter for reading,
+   Fraunces only for the gentle brand wordmark. */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/bricolage-grotesque-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: "Fraunces";
   src: url("/fonts/fraunces-latin.woff2") format("woff2");
   font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Fraunces";
-  src: url("/fonts/fraunces-italic-latin.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Libre Caslon Text";
-  src: url("/fonts/libre-caslon-text-400-latin.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Libre Caslon Text";
-  src: url("/fonts/libre-caslon-text-700-latin.woff2") format("woff2");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -36,6 +30,7 @@
   --muted: #6f5a55;
   --green: #46663f;
   --yellow: #e9c45a;
+  --cyclamen: #9b2c66;
   --hairline: rgba(46, 39, 37, 0.13);
   /* The game card stays dark in both themes, like a framed print. */
   --card: #2e2725;
@@ -44,8 +39,9 @@
   --card-line: rgba(246, 225, 228, 0.28);
   --page: 66rem;
   --measure: 36rem;
-  --display: "Fraunces", Georgia, "Times New Roman", serif;
-  --text: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --brand: "Fraunces", Georgia, "Times New Roman", serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -58,8 +54,8 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 17px/1.65 var(--text);
-  font-feature-settings: "kern", "liga", "onum";
+  font: 400 17px/1.6 var(--text);
+  font-feature-settings: "kern", "liga";
 }
 
 img { max-width: 100%; height: auto; }
@@ -105,7 +101,7 @@ img { max-width: 100%; height: auto; }
 
 .brand-name {
   margin: 0;
-  font-family: var(--display);
+  font-family: var(--brand);
   font-size: 19px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -118,6 +114,7 @@ img { max-width: 100%; height: auto; }
   flex-wrap: wrap;
   gap: 4px 26px;
   font-size: 15px;
+  font-weight: 600;
 }
 .top-nav a { color: var(--muted); text-decoration: none; }
 .top-nav a:hover,
@@ -130,14 +127,14 @@ img { max-width: 100%; height: auto; }
 }
 .hero h1 {
   margin: 0;
-  max-width: 17ch;
+  max-width: 14ch;
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(44px, 7.4vw, 92px);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  font-size: clamp(56px, 10vw, 132px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
 }
-.hero em { font-style: italic; color: var(--green); }
+.hero em { font-style: normal; color: var(--cyclamen); }
 
 /* --- Section heads --- */
 .section-head {
@@ -151,6 +148,7 @@ img { max-width: 100%; height: auto; }
 .section-head h2 { margin: 0; }
 .section-head .count {
   font-family: var(--display);
+  font-weight: 800;
   font-size: 22px;
   color: var(--muted);
 }
@@ -158,10 +156,10 @@ img { max-width: 100%; height: auto; }
 h2.section-title {
   margin: 0 0 18px;
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(32px, 4.4vw, 46px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
   text-transform: none;
   color: var(--ink);
 }
@@ -199,9 +197,10 @@ h2.section-title {
 .game-title h3 {
   margin: 0;
   font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(30px, 3.6vw, 40px);
+  font-weight: 800;
+  font-size: clamp(32px, 3.8vw, 44px);
   line-height: 1;
+  letter-spacing: -0.03em;
   color: var(--card-ink);
 }
 .game-body p { margin: 0 0 14px; }
@@ -217,9 +216,9 @@ h2.section-title {
   border-radius: 999px;
   background: var(--yellow);
   color: #2e2725;
-  font-family: var(--display);
+  font-family: var(--text);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -250,9 +249,10 @@ h2.section-title {
 .contacts h3 {
   margin: 0 0 8px;
   font-family: var(--display);
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 1.15;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 .contacts p { margin: 0 0 14px; font-size: 16px; color: var(--muted); }
 .contacts .link { font-size: 16px; }
@@ -261,21 +261,21 @@ h2.section-title {
 .wordmark {
   font-family: var(--display);
   margin: 0 0 10px;
-  font-size: clamp(40px, 9vw, 84px);
-  letter-spacing: -0.02em;
-  line-height: 0.95;
-  font-weight: 700;
+  font-size: clamp(44px, 9.5vw, 96px);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  font-weight: 800;
   color: var(--ink);
 }
 
 .tagline {
-  font-family: var(--display);
+  font-family: var(--text);
   margin: 0 0 clamp(28px, 5vh, 48px);
   font-size: clamp(12px, 2.6vw, 14px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Game page: copy beside the artwork on wide screens, artwork first on narrow. */
@@ -305,13 +305,13 @@ h2.section-title {
 
 /* --- Body copy --- */
 h2 {
-  font-family: var(--display);
+  font-family: var(--text);
   font-size: 12px;
   margin: 56px 0 14px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -332,12 +332,12 @@ li { margin: 6px 0; }
 
 .lede {
   font-family: var(--display);
-  font-size: clamp(22px, 3.2vw, 30px);
-  line-height: 1.35;
-  font-weight: 400;
+  font-size: clamp(24px, 3.4vw, 32px);
+  line-height: 1.2;
+  font-weight: 700;
   color: var(--ink);
   margin: 0 0 20px;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.02em;
 }
 
 .updated {
@@ -356,8 +356,8 @@ li { margin: 6px 0; }
   background: var(--ink);
   color: var(--paper);
   text-decoration: none;
-  letter-spacing: 0.02em;
   font-size: 15px;
+  font-weight: 700;
   border-radius: 999px;
   border: 1px solid var(--ink);
 }
@@ -423,9 +423,9 @@ li { margin: 6px 0; }
 }
 .footer-cols h4 {
   margin: 0 0 12px;
-  font-family: var(--display);
+  font-family: var(--text);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -462,6 +462,7 @@ li { margin: 6px 0; }
     --muted: #c3a5a8;
     --green: #a7c793;
     --yellow: #e8c66a;
+    --cyclamen: #f3a6c9;
     --hairline: rgba(244, 230, 228, 0.14);
     --card: #34121f;
   }

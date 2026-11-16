@@ -2,9 +2,9 @@
 
 Six static pages, no build step, no JavaScript. `style.css` is shared.
 
-Fonts are self-hosted in `fonts/` (Fraunces for headings, Libre Caslon Text for
-body), so pages make no third-party requests. Both are SIL Open Font License;
-the license texts sit next to the files.
+Fonts are self-hosted in `fonts/` (Bricolage Grotesque for headings, Inter for
+body, Fraunces only for the brand wordmark), so pages make no third-party
+requests. All are SIL Open Font License; the license texts sit next to the files.
 
 Every page repeats the same site header (brand + nav) and footer markup. With
 no build step there is no include mechanism, so change all six together.
