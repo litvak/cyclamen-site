@@ -2,7 +2,7 @@
 
 Six static pages, no build step, no JavaScript. `style.css` is shared.
 
-Fonts are self-hosted in `fonts/` (Bricolage Grotesque for headings, Inter for
+Fonts are self-hosted in `fonts/` (Outfit for headings, Inter for
 body, Fraunces only for the brand wordmark), so pages make no third-party
 requests. All are SIL Open Font License; the license texts sit next to the files.
 
