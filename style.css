@@ -1,9 +1,9 @@
-/* Self-hosted (SIL OFL, see fonts/): Bricolage Grotesque for statements, Inter for reading,
+/* Self-hosted (SIL OFL, see fonts/): Outfit for statements, Inter for reading,
    Fraunces only for the gentle brand wordmark. */
 @font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("/fonts/bricolage-grotesque-latin.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Outfit";
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -39,7 +39,7 @@
   --card-line: rgba(246, 225, 228, 0.28);
   --page: 66rem;
   --measure: 36rem;
-  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --display: "Outfit", "Arial Black", system-ui, sans-serif;
   --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --brand: "Fraunces", Georgia, "Times New Roman", serif;
 }
@@ -119,6 +119,9 @@ img { max-width: 100%; height: auto; }
 .top-nav a { color: var(--muted); text-decoration: none; }
 .top-nav a:hover,
 .top-nav a[aria-current="page"] { color: var(--ink); }
+
+/* Tight tracking on the display face pinches word gaps; give them back. */
+.hero h1, h2.section-title, .game-title h3, .contacts h3, .wordmark, .lede { word-spacing: 0.08em; }
 
 /* --- Home: hero --- */
 .hero {
